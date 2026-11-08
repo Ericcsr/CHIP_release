@@ -32,11 +32,11 @@ Despite impressive agility in locomotion, humanoid forceful manipulation remains
 ## Citation
 
 ```bibtex
-@article{chen2026chip,
-  title   = {CHIP: Adaptive Compliance for Humanoid Control through Hindsight Perturbation},
-  author  = {Chen, Sirui and Cao, Zi-ang and Luo, Zhengyi and Casta{\~n}eda, Fernando and Li, Chenran and
-             Wang, Tingwu and Yuan, Ye and Fan, Linxi and Liu, C. Karen and Zhu, Yuke},
-  year    = {2026}
+@article{chen_cao_2025chip,
+    title={CHIP: Learning Adaptive Compliance for Humanoid Control through Hindsight Perturbation},
+    author={Chen, Sirui and Cao, Zi-ang and Luo, Zhengyi and Castañeda, Fernando and Li, Chenran and Wang, Tingwu and Yuan, Ye and Fan, Linxi and Liu, C Karen and Zhu, Yuke},
+    journal={Conference on Robot Learning},
+    year={2026}
 }
 ```
 
