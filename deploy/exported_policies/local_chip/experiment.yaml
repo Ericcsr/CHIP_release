@@ -1,0 +1,129 @@
+rl_policy:
+  # Paths are relative to the deploy/ directory.
+  onnx_model_path: "exported_policies/local_chip/policy.onnx"
+  ref_motion_path: "exported_policies/local_chip/ref_motion.npz"
+  mujoco_xml_path: "assets/g1/scene_29dof.xml"
+  ref_motion_start_index: 0
+
+  # Policy observation terms, in the order used during training.
+  obs_names:
+    - "lower_command"        # lower-body reference joint pos + vel (12 + 12)
+    - "vr_3point_pos"        # wrists + head targets in the reference pelvis frame (3 x 3)
+    - "vr_3point_ori"        # their orientations, wxyz (3 x 4)
+    - "motion_anchor_ori_b"  # reference pelvis orientation in robot frame, first 2 columns of rot. matrix (6)
+    - "projected_gravity"
+    - "omega"
+    - "q"
+    - "dq"
+    - "last_action"
+    - "compliance"           # hand compliance command (left, right, unused)
+
+  # Proprioceptive terms stacked over the last `history_length` steps.
+  history_length: 10
+  history_names:
+    - "projected_gravity"
+    - "omega"
+    - "q"
+    - "dq"
+    - "last_action"
+
+  # Initial compliance command; change at runtime with keys g / h / j.
+  init_compliance: [0.5, 0.5, 0.0]
+
+  control_dt: 0.02
+  simulation_dt: 0.005
+
+  # PD gains and torque limits in MuJoCo / Unitree joint order.
+  joint_stiffness:
+    - 40.1792  # left_hip_pitch_joint
+    - 99.0984  # left_hip_roll_joint
+    - 40.1792  # left_hip_yaw_joint
+    - 99.0984  # left_knee_joint
+    - 28.5012  # left_ankle_pitch_joint
+    - 28.5012  # left_ankle_roll_joint
+    - 40.1792  # right_hip_pitch_joint
+    - 99.0984  # right_hip_roll_joint
+    - 40.1792  # right_hip_yaw_joint
+    - 99.0984  # right_knee_joint
+    - 28.5012  # right_ankle_pitch_joint
+    - 28.5012  # right_ankle_roll_joint
+    - 40.1792  # waist_yaw_joint
+    - 28.5012  # waist_roll_joint
+    - 28.5012  # waist_pitch_joint
+    - 14.2506  # left_shoulder_pitch_joint
+    - 14.2506  # left_shoulder_roll_joint
+    - 14.2506  # left_shoulder_yaw_joint
+    - 14.2506  # left_elbow_joint
+    - 14.2506  # left_wrist_roll_joint
+    - 16.7783  # left_wrist_pitch_joint
+    - 16.7783  # left_wrist_yaw_joint
+    - 14.2506  # right_shoulder_pitch_joint
+    - 14.2506  # right_shoulder_roll_joint
+    - 14.2506  # right_shoulder_yaw_joint
+    - 14.2506  # right_elbow_joint
+    - 14.2506  # right_wrist_roll_joint
+    - 16.7783  # right_wrist_pitch_joint
+    - 16.7783  # right_wrist_yaw_joint
+
+
+  joint_damping:
+    - 2.5579  # left_hip_pitch_joint
+    - 6.3088  # left_hip_roll_joint
+    - 2.5579  # left_hip_yaw_joint
+    - 6.3088  # left_knee_joint
+    - 1.8144  # left_ankle_pitch_joint
+    - 1.8144  # left_ankle_roll_joint
+    - 2.5579  # right_hip_pitch_joint
+    - 6.3088  # right_hip_roll_joint
+    - 2.5579  # right_hip_yaw_joint
+    - 6.3088  # right_knee_joint
+    - 1.8144  # right_ankle_pitch_joint
+    - 1.8144  # right_ankle_roll_joint
+    - 2.5579  # waist_yaw_joint
+    - 1.8144  # waist_roll_joint
+    - 1.8144  # waist_pitch_joint
+    - 0.9072  # left_shoulder_pitch_joint
+    - 0.9072  # left_shoulder_roll_joint
+    - 0.9072  # left_shoulder_yaw_joint
+    - 0.9072  # left_elbow_joint
+    - 0.9072  # left_wrist_roll_joint
+    - 1.0681  # left_wrist_pitch_joint
+    - 1.0681  # left_wrist_yaw_joint
+    - 0.9072  # right_shoulder_pitch_joint
+    - 0.9072  # right_shoulder_roll_joint
+    - 0.9072  # right_shoulder_yaw_joint
+    - 0.9072  # right_elbow_joint
+    - 0.9072  # right_wrist_roll_joint
+    - 1.0681  # right_wrist_pitch_joint
+    - 1.0681  # right_wrist_yaw_joint
+
+  torque_limit:
+    - 88
+    - 139
+    - 88
+    - 139
+    - 50
+    - 50
+    - 88
+    - 139
+    - 88
+    - 139
+    - 50
+    - 50
+    - 88
+    - 50
+    - 50
+    - 25
+    - 25
+    - 25
+    - 25
+    - 25
+    - 5
+    - 5
+    - 25
+    - 25
+    - 25
+    - 25
+    - 25
+    - 5
+    - 5

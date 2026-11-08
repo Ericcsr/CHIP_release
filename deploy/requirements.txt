@@ -1,0 +1,6 @@
+numpy
+scipy>=1.14  # Rotation.as_quat(scalar_first=...)
+mujoco>=3.1
+onnxruntime
+pyyaml
+pynput

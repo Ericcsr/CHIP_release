@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Training outputs
+train/logs/
+train/outputs/
+train/wandb/
+**/videos/
+*.out
+
+# Downloaded robot description (fetched by train/setup.sh)
+train/source/whole_body_tracking/whole_body_tracking/assets/unitree_description/
+
+# Data (download separately, see train/README.md)
+*.zip
+train/**/*.npz
+train/**/*.csv
+train/**/*.pkl
+
+# Omniverse / Isaac Sim
+**/*.dmp
+**/.thumbs
+_isaac_sim*
+
+# MuJoCo
+MUJOCO_LOG.TXT
+
+# Deploy third-party deps (built by deploy/setup.sh --real)
+deploy/third_party/
