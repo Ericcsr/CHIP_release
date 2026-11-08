@@ -42,4 +42,4 @@ Despite impressive agility in locomotion, humanoid forceful manipulation remains
 
 ## Acknowledgments
 
-Training is built on [BeyondMimic / whole_body_tracking](https://github.com/HybridRobotics/whole_body_tracking) and [Isaac Lab](https://isaac-sim.github.io/IsaacLab). Retargeting uses [GMR](https://github.com/YanjieZe/GMR).
+Training is built on [SONIC / GR00T-WholeBodyControl](https://github.com/NVlabs/GR00T-WholeBodyControl), [BeyondMimic / whole_body_tracking](https://github.com/HybridRobotics/whole_body_tracking) and [Isaac Lab](https://isaac-sim.github.io/IsaacLab). Retargeting uses [GMR](https://github.com/YanjieZe/GMR).
